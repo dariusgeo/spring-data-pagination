@@ -1,0 +1,24 @@
+<h1>Contact us</h1>
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+
+  <label>
+    Firstname:
+    <span> {{employee.firstname}} </span>
+  </label>
+
+  <label>
+    Lastname:
+    <span> {{employee.lastname}} </span>
+  </label>
+
+  <label for="bonus">
+    Bonus percent:
+    <input type="text" formControlName="bonus" id="bonus" name="bonus">
+  </label>
+
+  <input type="submit" value="Apply bonus" class="cta">
+</form>
+
+<p>
+  <a class='btn btn-default' (click)="onBack()">Back </a>
+</p>

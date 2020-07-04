@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>List of employees</title>
+</head>
+<body>
+<div class="title">
+  <h2 class="center">List of employees</h2>
+</div>
+<div class="container">
+  <div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()"
+  >
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Salary</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <div *ngFor="let employee of employees">
+      <tr>
+        <th scope="row">{{employee.id}}</th>
+        <td>{{employee.firstname}}</td>
+        <td>{{employee.lastname}}</td>
+        <td>{{employee.salary}}</td>
+        <td><button type="button" class="btn btn-success" routerLink="/contact/{{employee.id}}">Apply bonus</button></td>
+      </tr>
+      </div>
+      </tbody>
+    </table>
+  </div>
+  <!-- spinner -->
+  <div  *ngIf = "next" class="row pb-5">
+    <div class="col-md-12 p-5">
+      <ngx-spinner
+        bdOpacity = 0.9
+        bdColor = ""
+        size = "default"
+        color = "#581f87"
+        type = "ball-pulse-sync"
+        [fullScreen] = "false"
+      >
+      </ngx-spinner>
+    </div>
+  </div>
+  <div *ngIf = "!next" class="row pb-5">
+    <div class="col-md-12 d-flex justify-content-center">
+      <div class="text-muted h6 alert alert-secondary p-2">No more items to show</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
