@@ -15,11 +15,6 @@ public class SpringDataServerApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-//                registry.addMapping("/**").allowedMethods()
-//                        .allowedOrigins("*")
-//                        .allowCredentials(true)
-//                        .allowedHeaders("X-Total-Count", "Link", "Access-Control-Allow-Origin")
-//                        .exposedHeaders("X-Total-Count", "Link", "Access-Control-Allow-Origin");
                 registry.addMapping("/**")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedOrigins("*")
