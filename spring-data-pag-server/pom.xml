@@ -3,16 +3,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.4.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<artifactId>spring-data-pagination</artifactId>
+		<groupId>edu.link.jpa</groupId>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
+
 	<groupId>edu.link.jpa</groupId>
-	<artifactId>spring-data-server</artifactId>
+	<artifactId>spring-data-pag-server</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>spring-data-server</name>
+	<name>spring-data-pag-server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -22,7 +22,6 @@
 	</properties>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -74,12 +73,6 @@
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>edu.link.jpa</groupId>
-			<artifactId>spring-data-ui</artifactId>
-			<version>${project.version}</version>
-			<scope>runtime</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -108,37 +101,8 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<artifactId>maven-resources-plugin</artifactId>
-					<executions>
-						<execution>
-							<id>copy-resources</id>
-							<phase>validate</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
-								<resources>
-									<resource>
-										<!--suppress UnresolvedMavenProperty -->
-										<directory>${project.parent.basedir}/spring-data-ui/src/main/webapp/dist/webapp/</directory>
-									</resource>
-								</resources>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-war-plugin</artifactId>
-					<configuration>
-						<packagingExcludes>WEB-INF/lib/tomcat-*.jar</packagingExcludes>
-						<warName>spring-data-ui</warName>
-					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>

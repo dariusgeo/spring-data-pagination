@@ -22,6 +22,8 @@ public class EmployeeDTO {
 
 	private Long jobId;
 
+	private int version;
+
 	public Long getId() {
 		return id;
 	}
@@ -92,5 +94,13 @@ public class EmployeeDTO {
 
 	public void setJobId(Long jobId) {
 		this.jobId = jobId;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 }
