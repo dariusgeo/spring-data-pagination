@@ -1,24 +1,38 @@
-<h1>Contact us</h1>
-<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+<div class="modal-body">
+  <div class="container">
 
-  <label>
-    Firstname:
-    <span> {{employee.firstname}} </span>
-  </label>
+    <div class="title">
+      <h2 class="center">Apply salary bonus</h2>
+    </div>
 
-  <label>
-    Lastname:
-    <span> {{employee.lastname}} </span>
-  </label>
+    <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
 
-  <label for="bonus">
-    Bonus percent:
-    <input type="text" formControlName="bonus" id="bonus" name="bonus">
-  </label>
+      <table class="table table-striped">
+        <tr class="row row-bordered">
+          <td class="col-md-3 text-weight-bold"><label>Firstname:</label></td>
+          <td class="col-md-3"><span> {{employee.firstname}} </span></td>
+          <td class="col-md-6"></td>
+        </tr>
+        <tr class="row row-bordered">
+          <td class="col-md-3 text-weight-bold"><label>Lastname:</label></td>
+          <td class="col-md-3"><span> {{employee.lastname}} </span></td>
+          <td class="col-md-6"></td>
+        </tr>
+        <tr class="row row-bordered">
+          <td class="col-md-3 text-weight-bold"><label>Actual salary:</label></td>
+          <td class="col-md-3"><span> {{employee.salary}} </span></td>
+          <td class="col-md-6"></td>
+        </tr>
+        <tr class="row row-bordered">
+          <td class="col-md-3 text-weight-bold"> <label for="bonus">Bonus percent:</label></td>
+          <td class="col-md-3"><span> <input type="text" formControlName="bonus" id="bonus" name="bonus"> % </span></td>
+          <td class="col-md-6"><input type="submit" value="Apply bonus" class="btn btn-success"></td>
+        </tr>
+      </table>
+    </form>
 
-  <input type="submit" value="Apply bonus" class="cta">
-</form>
-
-<p>
-  <a class='btn btn-default' (click)="onBack()">Back </a>
-</p>
+    <p>
+      <a class='btn btn-success' (click)="onBack()">Back </a>
+    </p>
+  </div>
+</div>

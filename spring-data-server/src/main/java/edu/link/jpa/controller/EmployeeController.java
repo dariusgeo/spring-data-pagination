@@ -42,7 +42,7 @@ public class EmployeeController {
 
 		Page<EmployeeDTO> result = employeeService.readAllEmployees(pageable);
 		
-		if(result.isEmpty()){
+		if(result.getContent().isEmpty()){
 		   return new ResponseEntity<>(null, PaginationUtil.generateEmptyPaginationHttpHeaders(pageable, "/api/employees/all"),
 				   HttpStatus.NO_CONTENT);
 		}

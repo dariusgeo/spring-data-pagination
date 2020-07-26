@@ -6,7 +6,6 @@ import edu.link.jpa.model.Employee;
 import edu.link.jpa.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,7 +51,7 @@ public class EmployeeService {
 		Double salary = employee.getSalary();
 		Double bonus = employee.getCommission();
 		employee.setCommission(bonus/100);
-		employee.setSalary(salary + (salary * bonus));
+		employee.setSalary(salary + (salary * employee.getCommission()));
 
 		//dbEmployee = null; // See Propagation.REQUIRES_NEW effect
 
