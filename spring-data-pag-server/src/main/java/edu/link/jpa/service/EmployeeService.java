@@ -47,6 +47,7 @@ public class EmployeeService {
 
 		Optional<Employee> dbEmployee = employeeRepository.findById(employeeDTO.getId());
 
+		// Observe employee's version
 		Employee employee = employeeMapper.employeeDTOToEmployee(employeeDTO);
 		Double salary = employee.getSalary();
 		Double bonus = employee.getCommission();

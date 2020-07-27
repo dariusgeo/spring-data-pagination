@@ -1,7 +1,5 @@
 package edu.link.jpa.dto;
 
-import edu.link.jpa.model.Job;
-
 public class JobDTO {
 
     private String jobId;
